@@ -33,7 +33,7 @@ Conference = {
 
     getMetaData(item) {
         var doi = item.getField('DOI');
-        if (item.itemTypeID !== Zotero.ItemTypes.getID('ConferencePaper')) {
+        if (item.itemTypeID !== Zotero.ItemTypes.getID('conferencePaper')) {
             // Utilities.publishError("Unsupported Item Type", "Only Conference Article is supported.")
             return null;
         }
