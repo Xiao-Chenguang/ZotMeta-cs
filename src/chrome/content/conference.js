@@ -87,6 +87,7 @@ Conference = {
         var metaData = await this.getMetaData(item);
         console.log("metadata:" + metaData);
         if (!metaData) {
+            Utilities.publishError("Error retrieving metadata");
             return 1;
         }
 
