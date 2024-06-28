@@ -1,4 +1,4 @@
-# ZotMeta: Metadata update tool 
+# ZotMeta+cs: Metadata update tool extended for CS conference papers
 ZotMeta is a Zotero plugin to update articles(based on doi) and books(based on isbn) metadata. 
 
 # Credits
