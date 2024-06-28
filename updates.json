@@ -3,9 +3,9 @@
     "zotmeta@roadtodream.tech": {
       "updates": [
         {
-          "version": "0.6",
-          "update_link": "https://github.com/RoadToDream/ZotMeta/releases/download/v0.6/zotmeta-0.6.xpi",
-          "update_hash": "sha256:33437d4ba1ed73cf28eba393bf22c776d57689a066fbd27d70ca02bb18427f7c",
+          "version": "0.7",
+          "update_link": "https://github.com/RoadToDream/ZotMeta/releases/download/v0.7/zotmeta-0.7.xpi",
+          "update_hash": "sha256:eccbe4ba58d6073d2e74aa7ba4874ad4f140384a6f5113d47e98b2826c05322b",
           "applications": {
             "gecko": {
               "strict_min_version": "60.0"
