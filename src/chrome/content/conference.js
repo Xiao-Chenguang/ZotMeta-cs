@@ -43,7 +43,7 @@ Conference = {
         }
 
         var url = "https://dblp.org/search/publ/api?";
-        const params = { q: "Momentum-Based Variance Reduction in Non-Convex SGD", format: "json" };
+        const params = { q: item.getField("title"), format: "json" };
         console.log("start retrive:" + params["q"]);
         return Utilities.fetchWithTimeout(url + new URLSearchParams(params), {}, 3000)
             .then(response => {
