@@ -32,19 +32,18 @@ Conference = {
     },
 
     getMetaData(item) {
-        var doi = item.getField('DOI');
+        var title = item.getField('title');
         if (item.itemTypeID !== Zotero.ItemTypes.getID('conferencePaper')) {
             // Utilities.publishError("Unsupported Item Type", "Only Conference Article is supported.")
             return null;
         }
-        if (!doi) {
-            // Utilities.publishError("DOI not found", "DOI is required to retrieve metadata.")
+        if (!title) {
+            Utilities.publishError("title not found", "title is required to retrieve metadata.")
             return null;
         }
 
         var url = "https://dblp.org/search/publ/api?";
         const params = { q: item.getField("title"), format: "json" };
-        console.log("start retrive:" + params["q"]);
         return Utilities.fetchWithTimeout(url + new URLSearchParams(params), {}, 3000)
             .then(response => {
                 if (!response.ok) {
@@ -56,7 +55,6 @@ Conference = {
                 return response.text()
             })
             .then(data => {
-                console.log("retrive success:" + data);
                 try {
                     return JSON.parse(data)["result"]["hits"]["hit"][0]["info"];
                 } catch (error) {
@@ -65,7 +63,6 @@ Conference = {
                 }
             })
             .then(dataJson => {
-                console.log("retrive success:" + dataJson);
                 var Title = Utilities.safeGetFromJson(dataJson, ["title"]);
                 var Authors = this.generateAuthors(Utilities.safeGetFromJson(Utilities.safeGetFromJson(dataJson, ["authors"]), ["author"]));
                 var Publication = Utilities.safeGetFromJson(dataJson, ["venue"]);
@@ -85,7 +82,6 @@ Conference = {
 
     async updateMetadata(item) {
         var metaData = await this.getMetaData(item);
-        console.log("metadata:" + metaData);
         if (!metaData) {
             Utilities.publishError("Error retrieving metadata");
             return 1;
