@@ -102,6 +102,8 @@ ZotMeta = {
                     status = await Book.updateMetadata(item);
                 } else if (item.itemTypeID === Zotero.ItemTypes.getID('journalArticle')) {
                     status = await Journal.updateMetadata(item);
+                } else if (item.itemTypeID === Zotero.ItemTypes.getID('conferencePaper')) {
+                    status = await Conference.updateMetadata(item);
                 } else {
                     status = 1;
                 }
